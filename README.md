@@ -1,1 +1,12 @@
-# Please use this code with the instructions in the [ENPH 353 Lab 03 - ROS simulation](https://projectlab.engphys.ubc.ca/enph-353/) document.
+To run code, open your computer's command line, change directories to your catkin workspace. catkin_make and source your directory:
+
+```
+catkin_make
+source devel/setup.bash
+```
+
+Finally run:
+
+```
+roslaunch simulation robot.launch
+```
