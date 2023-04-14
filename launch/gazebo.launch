@@ -1,0 +1,8 @@
+<launch>
+  <arg name="sdf_file" default="/home/seanghaeli/catkin_ws/src/enph353_ros_lab/sdf/robot.sdf"/>
+  <param name="robot_description" textfile="$(arg sdf_file)"/>
+  <node name="gazebo" pkg="gazebo_ros" type="gazebo" respawn="false" output="screen">
+    <param name="verbose" value="true" />
+  </node>
+</launch>
+

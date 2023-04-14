@@ -1,0 +1,83 @@
+<robot name="onshape">
+<link name="stand">
+<visual>
+<origin xyz="-4.33681e-19 0.0886586 1.38778e-17" rpy="1.5708 -0 0" />
+<geometry>
+<mesh filename="package://enph353_ros_lab/urdf/wheelsep2/stand.stl"/>
+</geometry>
+<material name="stand_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-4.33681e-19 0.0886586 1.38778e-17" rpy="1.5708 -0 0" />
+<geometry>
+<mesh filename="package://enph353_ros_lab/urdf/wheelsep2/stand.stl"/>
+</geometry>
+<material name="stand_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</collision>
+<visual>
+<origin xyz="1.92627e-17 0.0911986 -0.019304" rpy="1.5708 -0 0" />
+<geometry>
+<mesh filename="package://enph353_ros_lab/urdf/wheelsep2/baseplate.stl"/>
+</geometry>
+<material name="baseplate_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="1.92627e-17 0.0911986 -0.019304" rpy="1.5708 -0 0" />
+<geometry>
+<mesh filename="package://enph353_ros_lab/urdf/wheelsep2/baseplate.stl"/>
+</geometry>
+<material name="baseplate_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-1.41241e-19 0.0407435 -2.18736e-05" rpy="0 0 0"/>
+<mass value="454.107" />
+<inertia ixx="0.509851" ixy="-2.65552e-19"  ixz="1.04105e-19" iyy="0.171953" iyz="0.000488553" izz="0.346627" />
+</inertial>
+</link>
+
+<link name="wheel">
+<visual>
+<origin xyz="0.0606385 -0.000454 0.153337" rpy="3.14159 -0.753171 3.14159" />
+<geometry>
+<mesh filename="package://enph353_ros_lab/urdf/wheelsep2/wheel.stl"/>
+</geometry>
+<material name="wheel_material">
+<color rgba="0.615686 0.811765 0.929412 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.0606385 -0.000454 0.153337" rpy="3.14159 -0.753171 3.14159" />
+<geometry>
+<mesh filename="package://enph353_ros_lab/urdf/wheelsep2/wheel.stl"/>
+</geometry>
+<material name="wheel_material">
+<color rgba="0.615686 0.811765 0.929412 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="6.93889e-18 -2.04256e-16 0.0886586" rpy="0 0 0"/>
+<mass value="0.141446" />
+<inertia ixx="0.000141657" ixy="1.14509e-20"  ixz="2.38286e-20" iyy="0.000273959" iyz="3.69159e-22" izz="0.000141657" />
+</inertial>
+</link>
+
+
+<joint name="revolute" type="revolute">
+    <origin xyz="0 -0.027 0" rpy="-1.57 0 0" />
+    <parent link="stand" />
+    <child link="wheel" />
+    <axis xyz="0 1 0"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+</joint>
+
+
+</robot>

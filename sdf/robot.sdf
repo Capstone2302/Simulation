@@ -1,0 +1,72 @@
+<sdf version="1.6">
+<model name="robot">
+<link name="wheel">
+<frame name="wheel_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="wheel_0_wheel_visual">
+<pose>0.0606385 -0.000454 0.153337 3.14159 -0.753171 3.14159</pose>
+<geometry>
+<mesh><uri>file:///home/seanghaeli/catkin_ws/src/enph353_ros_lab/sdf/wheel.stl</uri></mesh>
+</geometry>
+<material><ambient>0.615686 0.811765 0.929412 1</ambient><diffuse>0.615686 0.811765 0.929412 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="wheel_0_wheel_visual">
+<pose>0.0606385 -0.000454 0.153337 3.14159 -0.753171 3.14159</pose>
+<geometry>
+<mesh><uri>file:///home/seanghaeli/Documents/wheel-separate-base//wheel.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="wheel_frame">6.93889e-18 -2.04256e-16 0.0886586 0 0 0</pose>
+<mass>0.141446</mass>
+<inertia><ixx>0.000141657</ixx><ixy>1.14509e-20</ixy><ixz>2.38286e-20</ixz><iyy>0.000273959</iyy><iyz>3.69159e-22</iyz><izz>0.000141657</izz></inertia>
+</inertial>
+</link>
+
+<link name="stand">
+<frame name="stand_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="stand_0_stand_visual">
+<pose>0 0 0 0 -0 0</pose>
+<geometry>
+<mesh><uri>file:///home/seanghaeli/catkin_ws/src/enph353_ros_lab/sdf/stand.stl</uri></mesh>
+</geometry>
+<material><ambient>0.647059 0.647059 0.647059 1</ambient><diffuse>0.647059 0.647059 0.647059 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="stand_0_stand_visual">
+<pose>0 0 0 0 -0 0</pose>
+<geometry>
+<mesh><uri>file:///home/seanghaeli/catkin_ws/src/enph353_ros_lab/sdf/stand.stl</uri></mesh>
+</geometry>
+</collision>
+<visual name="stand_1_baseplate_visual">
+<pose>1.96964e-17 -0.019304 -0.00254 0 -0 0</pose>
+<geometry>
+<mesh><uri>file:///home/seanghaeli/catkin_ws/src/enph353_ros_lab/sdf/baseplate.stl</uri></mesh>
+</geometry>
+<material><ambient>0.231373 0.380392 0.705882 1</ambient><diffuse>0.231373 0.380392 0.705882 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="stand_1_baseplate_visual">
+<pose>1.96964e-17 -0.019304 -0.00254 0 -0 0</pose>
+<geometry>
+<mesh><uri>file:///home/seanghaeli/catkin_ws/src/enph353_ros_lab/sdf/baseplate.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="stand_frame">2.9244e-19 -2.18736e-05 0.0479151 0 0 0</pose>
+<mass>454.107</mass>
+<inertia><ixx>0.509851</ixx><ixy>1.04105e-19</ixy><ixz>2.65552e-19</ixz><iyy>0.346627</iyy><iyz>-0.000488553</iyz><izz>0.171953</izz></inertia>
+</inertial>
+</link>
+
+<joint name="revolute" type="revolute">
+<pose>4.33681e-19 -1.38778e-17 0.0886586 -1.5708 -0 0</pose>
+<parent>wheel</parent>
+<child>stand</child>
+<axis>
+<xyz>0 0 1</xyz>
+<limit><effort>1</effort><velocity>20</velocity></limit>
+</axis>
+</joint>
+
+
+</model>
+</sdf>
