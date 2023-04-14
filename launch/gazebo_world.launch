@@ -1,0 +1,11 @@
+<launch>
+  <!-- Start Gazebo with the empty world -->
+  <node name="gazebo" pkg="gazebo" type="gazebo" args="--verbose"/>
+
+  <!-- Load the robot model -->
+  <arg name="sdf_file" default="$(find enph353_ros_lab)/sdf/robot.sdf"/>
+  <arg name="robot_name" default="robot"/>
+
+  <node name="spawn_sdf" pkg="gazebo_ros" type="spawn_model" args="-sdf -file $(arg sdf_file) -model $(arg robot_name)"/>
+</launch>
+

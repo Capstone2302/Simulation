@@ -1,10 +1,11 @@
 <launch>
-  <arg name="init_pose"/>
-  <arg name="model" default="$(find enph353_ros_lab)/urdf/robot.xacro"/>
+  <arg name="robot_description" default="$(find enph353_ros_lab)/sdf/robot.sdf"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(arg robot_description)'" />
 
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-        args="$(arg init_pose) -unpause -urdf -model lab_robot -param robot_description" respawn="false" output="screen" />
+  <node name="gazebo" pkg="gazebo_ros" type="gazebo" respawn="false" output="screen">
+    <param name="verbose" value="true"/>
+  </node>
 
+  <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-sdf -model my_robot -param robot_description -x 0 -y 0 -z 0"/>
 </launch>
